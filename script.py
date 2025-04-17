@@ -18,11 +18,9 @@ response = requests.get(url, headers=headers)
 DATA = response.json().get("results",[])[:5]
 n = 0
 for i in DATA:
-    print(f"{n = }")
-    print(f"{'Nombre:':<16}{i.get('name')}")
-    print(f"{'Descripción:':<16}{i.get('overview')}")
+    print(f"\033[92m{n = }\033[0m\n{'Nombre:':<16}{i.get('name')}\n{'Descripción:':<16}{i.get('overview')}\n")
     n+=1
-x= int(input("Ingresa n de serie: "))
+x= int(input(f"Ingresa\033[92m n\033[0m de serie: "))
 SERIE_id = str(DATA[x].get("id"))
 # print(SERIE_id)
 url_serie = "https://api.themoviedb.org/3/tv/"+SERIE_id
@@ -33,7 +31,7 @@ EPS=[]
 for i in SERIE_DATA:
     EPS.append([i.get("season_number"), i.get("episode_count")])
 
-print("TxE = ",EPS)
+#print("TxE = ",EPS)
 def elegir(x='N'):
     temp= random.choice(EPS)
     ep= random.choice([i+1 for i in range(temp[1])])
@@ -42,6 +40,17 @@ def elegir(x='N'):
     if x != 'Y':
         elegir(x)
     else:
-        return
+        input("\nPresiona un botón para cerrar")
 elegir()
 
+###
+"""
+
+Future work
+- return name of episode https://api.themoviedb.org/3/tv/{series_id}/season/{season_number}
+- return to series browser
+- explanation at the beginning
+- add colors to text (n = )?
+
+"""
+###
