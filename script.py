@@ -18,7 +18,9 @@ response = requests.get(url, headers=headers)
 DATA = response.json().get("results",[])[:5]
 n = 0
 for i in DATA:
-    print(f"{n = }\n{"Nombre:":<16}{i.get("name")}\n{"Descripción:":16}{i.get("overview")}\n")
+    print(f"{n = }")
+    print(f"{'Nombre:':<16}{i.get('name')}")
+    print(f"{'Descripción:':<16}{i.get('overview')}")
     n+=1
 x= int(input("Ingresa n de serie: "))
 SERIE_id = str(DATA[x].get("id"))
