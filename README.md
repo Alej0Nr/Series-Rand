@@ -1,5 +1,5 @@
 
-# SeriesRoulette
+# 🎲 TV Chapter Roulette
 
 This project allows you to get a randomized episode from a TV series using the TMDB API.
 
